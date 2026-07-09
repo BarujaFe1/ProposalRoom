@@ -3,24 +3,26 @@
 
   <h1>ProposalRoom</h1>
 
-  <p><strong>Gerador de propostas comerciais com sala do cliente, aceite digital, follow-up e cobranÃ§a pronta.</strong></p>
+  <p><strong>Gerador de propostas comerciais com sala do cliente, aceite digital, follow-up e cobrança pronta.</strong></p>
   <p><strong>Commercial proposal generator with client room, digital acceptance, follow-up and billing-ready SaaS.</strong></p>
 
   <p>
-    <a href="#1-visÃ£o-geral--overview">PT-BR / English Overview</a> â€¢
-    <a href="#-product-preview">Preview</a> â€¢
-    <a href="#-screenshots">Screenshots</a> â€¢
-    <a href="#ï¸-stack--tecnologias">Stack</a> â€¢
-    <a href="#-arquitetura--architecture">Architecture</a> â€¢
-    <a href="#-quick-start--inÃ­cio-rÃ¡pido">Quick Start</a> â€¢
+    <a href="https://proposalroom-lab.vercel.app"><strong>Abrir demo</strong></a> •
+    <a href="#1-visão-geral--overview">PT-BR / English Overview</a> •
+    <a href="#-product-preview">Preview</a> •
+    <a href="#-screenshots">Screenshots</a> •
+    <a href="#️-stack--tecnologias">Stack</a> •
+    <a href="#-arquitetura--architecture">Architecture</a> •
+    <a href="#-quick-start--início-rápido">Quick Start</a> •
     <a href="#-autor--author">Author</a>
   </p>
 
   <p>
+    <a href="https://proposalroom-lab.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-proposalroom--lab.vercel.app-22C55E?style=for-the-badge" /></a>
     <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs" />
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
     <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Ready-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-    <img alt="Stripe" src="https://img.shields.io/badge/Billing-Stripe%20%2F%20Mercado%20Pago-635BFF?style=for-the-badge&logo=stripe&logoColor=white" />
+    <img alt="Billing Mock" src="https://img.shields.io/badge/Billing-Mock%20Lab-635BFF?style=for-the-badge&logo=stripe&logoColor=white" />
     <img alt="Vitest" src="https://img.shields.io/badge/Vitest-Unit%20Tests-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" />
     <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
   </p>
@@ -32,51 +34,66 @@
 
 ---
 
-## 1. VisÃ£o Geral / Overview
+## Live Demo (Lab)
 
-O **ProposalRoom** Ã© um SaaS para transformar um brief em uma proposta comercial elegante, com sala do cliente, aceite digital, lembretes e cobranÃ§a preparada para produÃ§Ã£o.
+**URL estável:** [https://proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app)
 
-Ele foi desenhado para prestadores de serviÃ§o, designers, agÃªncias, arquitetos, assistÃªncia tÃ©cnica e consultorias que precisam fechar propostas com clareza, evidÃªncia e fluxo real â€” sem dashboard decorativo.
+| | |
+|---|---|
+| **Abrir demo** | [proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app) |
+| **Login** | `demo@proposalroom.app` |
+| **Senha** | `demo1234` |
+| **Modo** | Lab only — billing mock, sem pagamento real |
 
-O projeto foi desenvolvido por **Felipe Alirio Baruja** como peÃ§a de portfÃ³lio premium, pronta para publicaÃ§Ã£o e evoluÃ§Ã£o para produto pago.
-
-> **Product Notice**  
-> O MVP roda com demo DB in-memory e `BILLING_PROVIDER=mock` para funcionar sem credenciais. Schema Supabase, adapters Stripe/Mercado Pago e webhooks idempotentes jÃ¡ estÃ£o no repositÃ³rio.
+> Portfolio lab: use o botão **Abrir demo** apenas com esta URL estável. Aceite digital e checkout são simulados.
 
 ---
 
-## âœ¨ Product Preview
+## 1. Visão Geral / Overview
+
+O **ProposalRoom** é um SaaS para transformar um brief em uma proposta comercial elegante, com sala do cliente, aceite digital, lembretes e cobrança preparada para produção.
+
+Ele foi desenhado para prestadores de serviço, designers, agências, arquitetos, assistência técnica e consultorias que precisam fechar propostas com clareza, evidência e fluxo real — sem dashboard decorativo.
+
+O projeto foi desenvolvido por **Felipe Alirio Baruja** como peça de portfólio premium (lab), pronta para publicação e evolução para produto pago.
+
+> **Product Notice**  
+> O MVP roda com demo DB in-memory e `BILLING_PROVIDER=mock` para funcionar sem credenciais. Schema Supabase, adapters Stripe/Mercado Pago e webhooks idempotentes já estão no repositório.
+
+---
+
+## ✨ Product Preview
 
 <p align="center">
   <img src="./assets/screenshots/01-dashboard.svg" alt="ProposalRoom Dashboard" width="100%" />
 </p>
 
-O ProposalRoom apresenta uma experiÃªncia editorial e luxuosa: proposta como landing page, workspace real, limites por plano e upgrade com billing preparado.
+O ProposalRoom apresenta uma experiência editorial e luxuosa: proposta como landing page, workspace real, limites por plano e upgrade com billing preparado (mock no lab).
 
 ---
 
 ## 2. Por que este projeto importa? / Why this project matters
 
-* **Propostas ainda sÃ£o PDF estÃ¡tico:** o cliente precisa de uma sala clara para ler, aceitar e pagar.
-* **Times enxutos precisam de velocidade:** do brief Ã  proposta em minutos, com IA e templates.
-* **CobranÃ§a nÃ£o pode ser afterthought:** entitlements, webhooks e portal do cliente jÃ¡ fazem parte do MVP.
-* **PortfÃ³lio defensÃ¡vel:** arquitetura limpa, testes, docs de deploy e caminho para produÃ§Ã£o.
+* **Propostas ainda são PDF estático:** o cliente precisa de uma sala clara para ler, aceitar e pagar.
+* **Times enxutos precisam de velocidade:** do brief à proposta em minutos, com IA e templates.
+* **Cobrança não pode ser afterthought:** entitlements, webhooks e portal do cliente já fazem parte do MVP.
+* **Portfólio defensável:** arquitetura limpa, testes, docs de deploy e caminho para produção.
 
 ---
 
-## ðŸ§  O diferencial do ProposalRoom / What makes ProposalRoom different
+## 🧠 O diferencial do ProposalRoom / What makes ProposalRoom different
 
-### PortuguÃªs
-NÃ£o Ã© um gerador de texto solto. Ã‰ um fluxo comercial completo:
-- brief â†’ seÃ§Ãµes editoriais;
-- pÃ¡gina pÃºblica protegida por token;
+### Português
+Não é um gerador de texto solto. É um fluxo comercial completo:
+- brief → seções editoriais;
+- página pública protegida por token;
 - aceite + CTA de pagamento;
-- status, lembretes e exportaÃ§Ã£o;
+- status, lembretes e exportação;
 - gating por plano no backend e na UI.
 
 ### English
 Not just a text generator. It is a full commercial flow:
-- brief â†’ editorial sections;
+- brief → editorial sections;
 - token-protected public page;
 - acceptance + payment CTA;
 - status, reminders and export;
@@ -84,157 +101,156 @@ Not just a text generator. It is a full commercial flow:
 
 ---
 
-## ðŸŽ¯ Problema que resolve / The problem it solves
+## 🎯 Problema que resolve / The problem it solves
 
-Em operaÃ§Ãµes reais de serviÃ§o:
+Em operações reais de serviço:
 - propostas demoram para sair;
-- o cliente nÃ£o sabe onde aceitar;
+- o cliente não sabe onde aceitar;
 - follow-up some no WhatsApp;
-- cobranÃ§a fica desconectada do documento;
-- limites de plano nÃ£o existem atÃ© o caos.
+- cobrança fica desconectada do documento;
+- limites de plano não existem até o caos.
 
-O **ProposalRoom** organiza brief, proposta, sala do cliente, aceite e billing em um Ãºnico produto.
+O **ProposalRoom** organiza brief, proposta, sala do cliente, aceite e billing em um único produto.
 
 ---
 
-## ðŸ§© Proposta / Product Pipeline
+## 🧩 Proposta / Product Pipeline
 
 ```txt
 Brief do cliente
-  â†“
-GeraÃ§Ã£o de proposta (IA / gerador local demo)
-  â†“
-EdiÃ§Ã£o e envio
-  â†“
-Sala pÃºblica protegida
-  â†“
+  ↓
+Geração de proposta (IA / gerador local demo)
+  ↓
+Edição e envio
+  ↓
+Sala pública protegida
+  ↓
 Aceite digital
-  â†“
-CTA de pagamento
-  â†“
+  ↓
+CTA de pagamento (mock no lab)
+  ↓
 Status + lembretes + export CSV
-  â†“
-Upgrade / Billing (mock â†’ Stripe / Mercado Pago)
+  ↓
+Upgrade / Billing (mock → Stripe / Mercado Pago)
 ```
 
 ---
 
-## ðŸ“¸ Screenshots
+## 📸 Screenshots
 
 <table>
   <tr>
     <td width="50%">
       <img src="./assets/screenshots/01-dashboard.svg" alt="Dashboard" />
       <br />
-      <sub><strong>Dashboard</strong> â€” propostas ativas, plano, uso de IA e lista operacional.</sub>
+      <sub><strong>Dashboard</strong> — propostas ativas, plano, uso de IA e lista operacional.</sub>
     </td>
     <td width="50%">
       <img src="./assets/screenshots/02-client-room.svg" alt="Client Room" />
       <br />
-      <sub><strong>Sala do cliente</strong> â€” proposta editorial, aceite e CTA de pagamento.</sub>
+      <sub><strong>Sala do cliente</strong> — proposta editorial, aceite e CTA de pagamento.</sub>
     </td>
   </tr>
   <tr>
     <td width="50%">
       <img src="./assets/screenshots/03-upgrade-billing.svg" alt="Upgrade and Billing" />
       <br />
-      <sub><strong>Upgrade & Billing</strong> â€” limites, planos Pro/Business e portal do cliente.</sub>
+      <sub><strong>Upgrade & Billing</strong> — limites, planos Pro/Business e portal do cliente.</sub>
     </td>
     <td width="50%">
       <img src="./assets/architecture-pipeline.svg" alt="Architecture" />
       <br />
-      <sub><strong>Architecture</strong> â€” Next.js, billing adapters, Supabase-ready schema.</sub>
+      <sub><strong>Architecture</strong> — Next.js, billing adapters, Supabase-ready schema.</sub>
     </td>
   </tr>
 </table>
 
 ---
 
-## ðŸ“Œ Estudo de Caso / Case Study
+## 📌 Estudo de Caso / Case Study
 
-### ðŸ“Œ Estudo de Caso: Atelier Norte
-O seed demo simula o workspace **Atelier Norte** com 3 propostas ativas no plano Starter, template editorial e cliente realista (Casa Aurora, Studio Lume, Oficina Verde). Ao tentar a 4Âª proposta, o gating exige upgrade â€” exatamente o momento de monetizaÃ§Ã£o.
+### 📌 Estudo de Caso: Atelier Norte
+O seed demo simula o workspace **Atelier Norte** com 3 propostas ativas no plano Starter, template editorial e clientes realistas (Casa Aurora, Studio Lume, Oficina Verde). Ao tentar a 4ª proposta, o gating exige upgrade — exatamente o momento de monetização.
 
-### ðŸ“Œ Case Study: Atelier Norte
-The demo seed simulates the **Atelier Norte** workspace with 3 active Starter proposals, an editorial template and realistic clients. Creating a 4th proposal triggers upgrade gating â€” the monetization moment.
+### 📌 Case Study: Atelier Norte
+The demo seed simulates the **Atelier Norte** workspace with 3 active Starter proposals, an editorial template and realistic clients. Creating a 4th proposal triggers upgrade gating — the monetization moment.
 
 ---
 
-## ðŸ§­ Visual Story / Jornada do Produto
+## 🧭 Visual Story / Jornada do Produto
 
 ```txt
-1. Abrir landing e entender a proposta de valor
+1. Abrir https://proposalroom-lab.vercel.app
 2. Entrar com demo@proposalroom.app / demo1234
 3. Ver dashboard com seed realista
 4. Criar proposta a partir de um brief
-5. Enviar e abrir a sala pÃºblica
-6. Aceitar e seguir para pagamento
+5. Enviar e abrir a sala pública
+6. Aceitar e seguir para pagamento (mock)
 7. Atingir limite Starter e ir para /app/upgrade
 8. Simular checkout mock e portal de billing
 ```
 
 ---
 
-## âš™ï¸ Funcionalidades Principais / Core Features
+## ⚙️ Funcionalidades Principais / Core Features
 
-### Brief â†’ Proposta
-Gera seÃ§Ãµes editoriais a partir do brief, com validaÃ§Ã£o Zod e contagem de uso de IA.
+### Brief → Proposta
+Gera seções editoriais a partir do brief, com validação Zod e contagem de uso de IA.
 
 ### Sala do Cliente
-PÃ¡gina pÃºblica `/p/[slug]?token=...` com visual de apresentaÃ§Ã£o, aceite e CTA de pagamento.
+Página pública `/p/[slug]?token=...` com visual de apresentação, aceite e CTA de pagamento.
 
-### Billing Ready
-Adapters `mock`, `stripe`, `mercadopago`, `pagarme`, plans, entitlements e webhook idempotente.
+### Billing Ready (Lab = mock)
+Adapters `mock`, `stripe`, `mercadopago`, `pagarme`, plans, entitlements e webhook idempotente. No lab público: apenas mock.
 
 ### Plan Guards
-Limites de propostas ativas, templates, remoÃ§Ã£o de marca, analytics e automaÃ§Ãµes.
+Limites de propostas ativas, templates, remoção de marca, analytics e automações.
 
 ### Export
 CSV simples das propostas do workspace.
 
 ---
 
-## ðŸ› ï¸ Stack / Tecnologias
+## 🛠️ Stack / Tecnologias
 
 ### Frontend
 - **Framework:** Next.js 15 (App Router) & React 19
 - **Linguagem:** TypeScript
-- **EstilizaÃ§Ã£o:** Tailwind CSS v4
-- **UI:** componentes prÃ³prios + Lucide
-- **Motion:** Framer Motion (pontual)
+- **Estilização:** Tailwind CSS v4
+- **UI:** componentes próprios + Lucide
 
 ### Backend / Platform
 - **Auth demo:** JWT httpOnly (`jose`)
 - **Data:** demo DB in-memory + schema Supabase Postgres/RLS
-- **IA:** Vercel AI SDK adapters (`OPENAI_API_KEY`, `XAI_API_KEY`)
-- **Billing:** Stripe / Mercado Pago / Pagar.me adapters
+- **IA:** adapters previstos (`OPENAI_API_KEY`, `XAI_API_KEY`)
+- **Billing:** Stripe / Mercado Pago / Pagar.me adapters (mock no lab)
 - **Testes:** Vitest + Playwright
-- **Deploy:** Vercel
+- **Deploy:** Vercel (`proposalroom-lab`)
 
 ---
 
-## ðŸ§± Arquitetura / Architecture
+## 🧱 Arquitetura / Architecture
 
 ```text
 ProposalRoom/
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ app/                      # Landing, auth, app, public room, APIs
-â”‚   â”œâ”€â”€ billing/                  # providers, plans, entitlements, webhooks
-â”‚   â”œâ”€â”€ components/               # UI + app shell
-â”‚   â””â”€â”€ lib/                      # auth, db demo, proposals, utils
-â”œâ”€â”€ supabase/schema.sql           # Postgres + RLS
-â”œâ”€â”€ docs/                         # deploy, stripe, supabase, handoff
-â”œâ”€â”€ tests/                        # unit tests
-â”œâ”€â”€ e2e/                          # Playwright critical flow
-â”œâ”€â”€ assets/                       # icon, hero, screenshots placeholders
-â””â”€â”€ README.md
+├── src/
+│   ├── app/                      # Landing, auth, app, public room, APIs
+│   ├── billing/                  # providers, plans, entitlements, webhooks
+│   ├── components/               # UI + app shell
+│   └── lib/                      # auth, db demo, proposals, utils
+├── supabase/schema.sql           # Postgres + RLS
+├── docs/                         # deploy, stripe, supabase, handoff
+├── tests/                        # unit tests
+├── e2e/                          # Playwright critical flow
+├── assets/                       # icon, hero, screenshots placeholders
+└── README.md
 ```
 
 Detalhes em [docs/architecture.md](./docs/architecture.md).
 
 ---
 
-## ðŸ§± Visual Architecture
+## 🧱 Visual Architecture
 
 <p align="center">
   <img src="./assets/architecture-pipeline.svg" alt="ProposalRoom visual architecture" width="100%" />
@@ -242,13 +258,13 @@ Detalhes em [docs/architecture.md](./docs/architecture.md).
 
 ---
 
-## ðŸš€ Quick Start / InÃ­cio RÃ¡pido
+## 🚀 Quick Start / Início Rápido
 
-### PrÃ©-requisitos
-- **Node.js** v20+
-- **Git**
+### Live Demo (recomendado)
+Abra [https://proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app)  
+Login: `demo@proposalroom.app` / `demo1234`
 
-### Setup
+### Local
 
 ```bash
 git clone https://github.com/BarujaFe1/ProposalRoom.git
@@ -260,11 +276,9 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000).
 
-**Demo login:** `demo@proposalroom.app` / `demo1234`
-
 ---
 
-## ðŸ§ª Scripts e Testes / Scripts and Testing
+## 🧪 Scripts e Testes / Scripts and Testing
 
 ```bash
 npm run lint
@@ -277,36 +291,38 @@ npm run seed
 
 ---
 
-## ðŸ’³ Planos
+## 💳 Planos
 
-| Plano | PreÃ§o | Destaques |
+| Plano | Preço | Destaques |
 |------|------|-----------|
-| Starter | GrÃ¡tis | 3 propostas ativas, marca ProposalRoom |
-| Pro | R$ 89/mÃªs | 30 propostas, remove marca, analytics |
-| Business | R$ 249/mÃªs | ilimitado, domÃ­nio, automaÃ§Ãµes |
+| Starter | Grátis | 3 propostas ativas, marca ProposalRoom |
+| Pro | R$ 89/mês | 30 propostas, remove marca, analytics |
+| Business | R$ 249/mês | ilimitado, domínio, automações |
+
+No lab público a cobrança permanece **mock**.
 
 ---
 
-## ðŸ§­ Roadmap
+## 🧭 Roadmap
 
-* **MVP:** brief, proposta, sala pÃºblica, aceite, billing mock, docs
-* **Fase 2:** Supabase real, Resend, domÃ­nio customizado, templates compartilhÃ¡veis, admin
+* **MVP / Lab:** brief, proposta, sala pública, aceite, billing mock, docs, live demo
+* **Fase 2:** Supabase real, Resend, domínio customizado, templates compartilháveis, admin
 * **Fora do MVP:** app nativo, marketplace, multi-idioma completo
 
 ---
 
-## ðŸ’¼ Valor para PortfÃ³lio / Portfolio Value
+## 💼 Valor para Portfólio / Portfolio Value
 
-- Produto SaaS monetizÃ¡vel com UX editorial
-- Arquitetura de billing defensÃ¡vel
-- Fluxo completo autenticado + pÃ¡gina pÃºblica
-- DocumentaÃ§Ã£o de deploy e ativaÃ§Ã£o de cobranÃ§a
+- Produto SaaS monetizável com UX editorial
+- Arquitetura de billing defensável
+- Fluxo completo autenticado + página pública
+- Live demo estável para recrutadores
 
-Guia: [docs/portfolio.md](./docs/portfolio.md) Â· Vendas: [docs/sell.md](./docs/sell.md)
+Guia: [docs/portfolio.md](./docs/portfolio.md) · Vendas: [docs/sell.md](./docs/sell.md)
 
 ---
 
-## ðŸ“š DocumentaÃ§Ã£o Complementar
+## 📚 Documentação Complementar
 
 - [docs/architecture.md](./docs/architecture.md)
 - [docs/deploy-vercel.md](./docs/deploy-vercel.md)
@@ -318,21 +334,24 @@ Guia: [docs/portfolio.md](./docs/portfolio.md) Â· Vendas: [docs/sell.md](./doc
 
 ---
 
-## ðŸ–¼ï¸ GitHub Social Preview
+## 🖼️ GitHub Social Preview
 
 ```txt
 assets/social-preview.svg
 ```
 
-DimensÃ£o recomendada para PNG final: 1280x640. Upload em Repository Settings â†’ Social Preview.
-
 ---
 
-## ðŸ”– GitHub Repository Metadata
+## 🔖 GitHub Repository Metadata
 
 ### About sugerido
 ```txt
 Commercial proposal generator with client room, digital acceptance, follow-up and billing-ready SaaS.
+```
+
+### Homepage
+```txt
+https://proposalroom-lab.vercel.app
 ```
 
 ### Topics sugeridos
@@ -352,7 +371,7 @@ tailwindcss
 
 ---
 
-## ðŸ‘¤ Autor / Author
+## 👤 Autor / Author
 
 Desenvolvido por **Felipe Alirio Baruja**.
 
@@ -362,7 +381,6 @@ Desenvolvido por **Felipe Alirio Baruja**.
 
 ---
 
-## ðŸ“„ LicenÃ§a / License
+## 📄 Licença / License
 
 MIT License. Copyright (c) 2026 Felipe Alirio Baruja.
-

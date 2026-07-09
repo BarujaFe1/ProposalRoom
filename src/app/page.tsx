@@ -36,19 +36,19 @@ export default function LandingPage() {
             em minutos, com cara de produto premium.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/signup">
+            <Link href="/login">
               <Button size="lg">
-                Criar primeira proposta <ArrowRight className="h-4 w-4" />
+                Abrir demo <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/login">
+            <Link href="/signup">
               <Button size="lg" variant="secondary" className="border-white/20 bg-white/5 text-white">
-                Entrar na demo
+                Criar conta
               </Button>
             </Link>
           </div>
           <p className="mt-4 text-sm text-white/50">
-            Lab / Live Demo — mock billing only. Demo: demo@proposalroom.app / demo1234
+            Lab only — mock billing. Demo: demo@proposalroom.app / demo1234
           </p>
         </div>
       </section>
