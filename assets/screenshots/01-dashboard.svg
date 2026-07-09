@@ -1,0 +1,11 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#F4EFE6"/>
+  <rect x="40" y="40" width="220" height="820" rx="16" fill="#14201A"/>
+  <rect x="300" y="40" width="1060" height="120" rx="16" fill="#FFFAF2" stroke="#D9CFBF"/>
+  <rect x="300" y="200" width="330" height="160" rx="16" fill="#FFFAF2" stroke="#D9CFBF"/>
+  <rect x="660" y="200" width="330" height="160" rx="16" fill="#FFFAF2" stroke="#D9CFBF"/>
+  <rect x="1020" y="200" width="340" height="160" rx="16" fill="#FFFAF2" stroke="#D9CFBF"/>
+  <rect x="300" y="400" width="1060" height="460" rx="16" fill="#FFFAF2" stroke="#D9CFBF"/>
+  <text x="320" y="110" fill="#14201A" font-family="Georgia, serif" font-size="36">Dashboard ProposalRoom</text>
+  <text x="60" y="100" fill="#F7F1E6" font-family="Georgia, serif" font-size="22">ProposalRoom</text>
+</svg>

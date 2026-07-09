@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#F4EFE6"/>
+  <text x="80" y="120" fill="#14201A" font-family="Georgia, serif" font-size="48">Upgrade / Billing</text>
+  <rect x="80" y="200" width="560" height="520" rx="20" fill="#FFFAF2" stroke="#8C3B2A" stroke-width="3"/>
+  <rect x="700" y="200" width="560" height="520" rx="20" fill="#14201A"/>
+  <text x="120" y="280" fill="#14201A" font-family="Georgia, serif" font-size="40">Pro · R$ 89</text>
+  <text x="740" y="280" fill="#F7F1E6" font-family="Georgia, serif" font-size="40">Business · R$ 249</text>
+</svg>

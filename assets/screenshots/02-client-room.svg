@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#14201A"/>
+  <text x="80" y="160" fill="#B08A45" font-family="Arial" font-size="20" letter-spacing="6">SALA DO CLIENTE</text>
+  <text x="80" y="260" fill="#F7F1E6" font-family="Georgia, serif" font-size="64">Identidade visual — Casa Aurora</text>
+  <rect x="80" y="340" width="900" height="420" rx="20" fill="#1F2E26"/>
+  <text x="120" y="420" fill="#F7F1E6" font-family="Georgia, serif" font-size="36">Aceite e pagamento</text>
+  <rect x="120" y="480" width="220" height="56" rx="10" fill="#8C3B2A"/>
+  <text x="150" y="515" fill="#FFF8F1" font-family="Arial" font-size="18">Aceitar proposta</text>
+</svg>

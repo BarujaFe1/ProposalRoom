@@ -1,33 +1,43 @@
-﻿{
-    "name":  "proposalroom",
-    "version":  "0.1.0",
-    "private":  "true",
-    "scripts":  {
-                    "dev":  "next dev",
-                    "build":  "next build",
-                    "start":  "next start",
-                    "lint":  "eslint .",
-                    "format":  "prettier --write .",
-                    "typecheck":  "tsc --noEmit",
-                    "test":  "vitest run",
-                    "test:watch":  "vitest",
-                    "test:e2e":  "playwright test",
-                    "seed":  "tsx scripts/seed.ts"
-                },
-    "dependencies":  {
-                         "next":  "16.2.10",
-                         "react":  "19.2.4",
-                         "react-dom":  "19.2.4"
-                     },
-    "devDependencies":  {
-                            "@tailwindcss/postcss":  "^4",
-                            "@types/node":  "^20",
-                            "@types/react":  "^19",
-                            "@types/react-dom":  "^19",
-                            "eslint":  "^9",
-                            "eslint-config-next":  "16.2.10",
-                            "tailwindcss":  "^4",
-                            "typescript":  "^5"
-                        },
-    "description":  "Commercial proposal generator with client room, acceptance, follow-up and billing-ready SaaS."
+{
+  "name": "proposalroom",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Commercial proposal generator with client room, acceptance, follow-up and billing-ready SaaS.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
+    "jose": "^6.2.3",
+    "lucide-react": "^0.539.0",
+    "nanoid": "^5.1.16",
+    "next": "15.5.20",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.20",
+    "prettier": "^3.9.5",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.0",
+    "typescript": "^5",
+    "vitest": "^3.2.7"
+  }
 }

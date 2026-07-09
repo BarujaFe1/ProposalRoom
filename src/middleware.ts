@@ -1,0 +1,25 @@
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const session = request.cookies.get("pr_session");
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith("/app") && !session) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
+
+  if ((pathname === "/login" || pathname === "/signup") && session) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/app";
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ["/app/:path*", "/login", "/signup", "/onboarding"],
+};
