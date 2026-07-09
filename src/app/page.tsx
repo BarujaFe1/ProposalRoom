@@ -48,7 +48,7 @@ export default function LandingPage() {
             </Link>
           </div>
           <p className="mt-4 text-sm text-white/50">
-            Demo: demo@proposalroom.app / demo1234
+            Lab / Live Demo — mock billing only. Demo: demo@proposalroom.app / demo1234
           </p>
         </div>
       </section>
