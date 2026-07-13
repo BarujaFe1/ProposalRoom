@@ -16,3 +16,17 @@ export function absoluteUrl(path = "") {
   const base = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   return `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
+const STATUS_LABELS: Record<string, string> = {
+  draft: "Rascunho",
+  sent: "Enviada",
+  viewed: "Visualizada",
+  accepted: "Aceita",
+  declined: "Recusada",
+  expired: "Expirada",
+  paid: "Paga",
+};
+
+export function formatProposalStatus(status: string) {
+  return STATUS_LABELS[status] ?? status;
+}

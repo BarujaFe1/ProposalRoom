@@ -25,10 +25,19 @@ export default async function PublicProposalPage({
   const workspace = db().workspaces.find((w) => w.id === proposal.workspaceId);
   const plan = getPlan(workspace?.planId);
   const showBrand = !plan.limits.removeBranding;
+  const brand = workspace?.brandColor ?? "#1F3A2E";
 
   return (
-    <div className="min-h-screen bg-[var(--ink)] text-[var(--cream)]">
-      <div className="hero-wash mx-auto min-h-[42vh] max-w-5xl px-6 py-16 sm:px-10">
+    <div
+      className="min-h-screen bg-[var(--ink)] text-[var(--cream)]"
+      style={{ ["--workspace-brand" as string]: brand }}
+    >
+      <div
+        className="mx-auto min-h-[42vh] max-w-5xl px-6 py-16 sm:px-10"
+        style={{
+          background: `linear-gradient(160deg, ${brand}f5, ${brand}cc)`,
+        }}
+      >
         <p className="text-xs uppercase tracking-[0.28em] text-[var(--gold)]">
           Sala do cliente
         </p>
@@ -58,7 +67,6 @@ export default async function PublicProposalPage({
           slug={proposal.publicSlug}
           token={proposal.publicToken}
           status={proposal.status}
-          paymentUrl={proposal.paymentUrl}
         />
       </div>
     </div>

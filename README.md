@@ -21,9 +21,10 @@
     <a href="https://proposalroom-lab.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-proposalroom--lab.vercel.app-22C55E?style=for-the-badge" /></a>
     <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs" />
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-    <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Ready-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+    <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Schema%20Ready-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
     <img alt="Billing Mock" src="https://img.shields.io/badge/Billing-Mock%20Lab-635BFF?style=for-the-badge&logo=stripe&logoColor=white" />
     <img alt="Vitest" src="https://img.shields.io/badge/Vitest-Unit%20Tests-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" />
+    <img alt="CI" src="https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" />
     <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
   </p>
 </div>
@@ -119,7 +120,7 @@ O **ProposalRoom** organiza brief, proposta, sala do cliente, aceite e billing e
 ```txt
 Brief do cliente
   ↓
-Geração de proposta (IA / gerador local demo)
+Geração de proposta (gerador local no lab · adapters de IA preparados)
   ↓
 Edição e envio
   ↓
@@ -185,20 +186,39 @@ The demo seed simulates the **Atelier Norte** workspace with 3 active Starter pr
 3. Ver dashboard com seed realista
 4. Criar proposta a partir de um brief
 5. Enviar e abrir a sala pública
-6. Aceitar e seguir para pagamento (mock)
+6. Aceitar e **simular pagamento (lab)** na própria sala
 7. Atingir limite Starter e ir para /app/upgrade
 8. Simular checkout mock e portal de billing
 ```
 
 ---
 
+## O que este projeto demonstra
+
+- Domínio comercial completo (não só UI): brief → proposta → aceite → status → upgrade
+- Entitlements e limites de plano no backend
+- Webhooks de billing idempotentes (padrão de SaaS)
+- Auth com senha hasheada (scrypt) + JWT verificado no middleware
+- Demo pública estável sem cobrança real
+- Documentação de arquitetura, decisões, testes e deploy
+
+## Como eu apresentaria em entrevista
+
+1. **Problema:** proposta em PDF + WhatsApp = aceite e cobrança desconectados  
+2. **Solução:** sala do cliente com aceite digital e fluxo de pagamento (mock no lab)  
+3. **Momento SaaS:** 4ª proposta no Starter força upgrade — monetização explícita  
+4. **Arquitetura:** adapters de billing + entitlements + webhook router  
+5. **Honestidade de lab:** in-memory DB, gerador local, billing mock — schema Supabase e Stripe/MP prontos para evolução  
+
+---
+
 ## ⚙️ Funcionalidades Principais / Core Features
 
 ### Brief → Proposta
-Gera seções editoriais a partir do brief, com validação Zod e contagem de uso de IA.
+Gera seções editoriais a partir do brief (gerador local no lab), com validação Zod e contagem de uso.
 
 ### Sala do Cliente
-Página pública `/p/[slug]?token=...` com visual de apresentação, aceite e CTA de pagamento.
+Página pública `/p/[slug]?token=...` com visual de apresentação, aceite digital e **pagamento simulado in-app**.
 
 ### Billing Ready (Lab = mock)
 Adapters `mock`, `stripe`, `mercadopago`, `pagarme`, plans, entitlements e webhook idempotente. No lab público: apenas mock.
@@ -211,6 +231,41 @@ CSV simples das propostas do workspace.
 
 ---
 
+## Trade-offs
+
+| Escolha | Ganho | Custo |
+|---------|-------|-------|
+| In-memory DB | Demo sem credenciais | Estado não persiste em serverless |
+| Mock billing | Zero risco de cobrança | Checkout real exige SDK |
+| Gerador local | Demo determinística | Não é LLM ao vivo no lab |
+| Token na query | Links fáceis de compartilhar | Risco de vazamento via Referer |
+
+Detalhes: [docs/TECHNICAL_DECISIONS.md](./docs/TECHNICAL_DECISIONS.md)
+
+---
+
+## Status atual
+
+**Lab / Live Demo estável** em produção Vercel (`proposalroom-lab`). Pronto para portfólio e walkthrough. Persistência Supabase e cobrança real ficam no roadmap.
+
+---
+
+## Variáveis de ambiente
+
+Veja [`.env.example`](./.env.example). Mínimo para lab:
+
+```bash
+DEMO_MODE=true
+BILLING_PROVIDER=mock
+AI_PROVIDER=mock
+EMAIL_PROVIDER=mock
+AUTH_SECRET=<32+ chars>
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_NAME=ProposalRoom
+```
+
+---
+
 ## 🛠️ Stack / Tecnologias
 
 ### Frontend
@@ -220,11 +275,12 @@ CSV simples das propostas do workspace.
 - **UI:** componentes próprios + Lucide
 
 ### Backend / Platform
-- **Auth demo:** JWT httpOnly (`jose`)
-- **Data:** demo DB in-memory + schema Supabase Postgres/RLS
-- **IA:** adapters previstos (`OPENAI_API_KEY`, `XAI_API_KEY`)
+- **Auth demo:** JWT httpOnly (`jose`) + scrypt password hashes
+- **Data:** demo DB in-memory + schema Supabase Postgres/RLS (não ligado no lab)
+- **Geração:** local no lab; adapters de IA documentados
 - **Billing:** Stripe / Mercado Pago / Pagar.me adapters (mock no lab)
-- **Testes:** Vitest + Playwright
+- **Testes:** Vitest (+ Playwright opcional)
+- **CI:** GitHub Actions
 - **Deploy:** Vercel (`proposalroom-lab`)
 
 ---
@@ -239,9 +295,10 @@ ProposalRoom/
 │   ├── components/               # UI + app shell
 │   └── lib/                      # auth, db demo, proposals, utils
 ├── supabase/schema.sql           # Postgres + RLS
-├── docs/                         # deploy, stripe, supabase, handoff
+├── docs/                         # audit, architecture, testing, deploy, handoff
 ├── tests/                        # unit tests
 ├── e2e/                          # Playwright critical flow
+├── .github/workflows/ci.yml
 ├── assets/                       # icon, hero, screenshots placeholders
 └── README.md
 ```
@@ -270,6 +327,7 @@ Login: `demo@proposalroom.app` / `demo1234`
 git clone https://github.com/BarujaFe1/ProposalRoom.git
 cd ProposalRoom
 cp .env.example .env.local
+# defina AUTH_SECRET com 32+ caracteres
 npm install
 npm run dev
 ```
@@ -284,10 +342,14 @@ Abra [http://localhost:3000](http://localhost:3000).
 npm run lint
 npm run typecheck
 npm test
-npm run test:e2e
 npm run build
 npm run seed
+# opcional:
+# npm install -D @playwright/test && npx playwright install chromium
+# npm run test:e2e
 ```
+
+Guia: [docs/TESTING.md](./docs/TESTING.md)
 
 ---
 
@@ -305,7 +367,7 @@ No lab público a cobrança permanece **mock**.
 
 ## 🧭 Roadmap
 
-* **MVP / Lab:** brief, proposta, sala pública, aceite, billing mock, docs, live demo
+* **MVP / Lab:** brief, proposta, sala pública, aceite, billing mock, docs, live demo, CI
 * **Fase 2:** Supabase real, Resend, domínio customizado, templates compartilháveis, admin
 * **Fora do MVP:** app nativo, marketplace, multi-idioma completo
 
@@ -324,13 +386,17 @@ Guia: [docs/portfolio.md](./docs/portfolio.md) · Vendas: [docs/sell.md](./docs/
 
 ## 📚 Documentação Complementar
 
+- [docs/AUDIT_REPORT.md](./docs/AUDIT_REPORT.md)
 - [docs/architecture.md](./docs/architecture.md)
+- [docs/TECHNICAL_DECISIONS.md](./docs/TECHNICAL_DECISIONS.md)
+- [docs/TESTING.md](./docs/TESTING.md)
+- [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md)
 - [docs/deploy-vercel.md](./docs/deploy-vercel.md)
 - [docs/supabase.md](./docs/supabase.md)
 - [docs/stripe.md](./docs/stripe.md)
 - [docs/mercadopago.md](./docs/mercadopago.md)
 - [docs/launch-checklist.md](./docs/launch-checklist.md)
-- [docs/handoff.md](./docs/handoff.md)
+- [docs/HANDOFF.md](./docs/HANDOFF.md)
 
 ---
 

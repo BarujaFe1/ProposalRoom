@@ -57,18 +57,18 @@ export default function LandingPage() {
         {[
           {
             icon: Sparkles,
-            title: "Brief → proposta com IA",
-            body: "Transforme um brief em seções editoriais prontas para apresentar.",
+            title: "Brief → proposta editorial",
+            body: "Transforme um brief em seções prontas para apresentar (gerador local no lab; adapters de IA preparados).",
           },
           {
             icon: FileSignature,
             title: "Sala do cliente",
-            body: "Página pública protegida com aceite, status e CTA de pagamento.",
+            body: "Página pública protegida com aceite digital, status e pagamento simulado.",
           },
           {
             icon: Wallet,
-            title: "Billing preparado",
-            body: "Planos, entitlements e webhooks idempotentes com Stripe/MP adapters.",
+            title: "Billing mock (lab)",
+            body: "Planos, entitlements e webhooks idempotentes — Stripe/MP adapters sem cobrança real.",
           },
         ].map((item) => (
           <div

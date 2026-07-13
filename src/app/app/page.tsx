@@ -7,7 +7,7 @@ import { getPlan } from "@/billing/plans";
 import { checkActiveProposalLimit } from "@/billing/entitlements";
 import { entitlementFromWorkspace } from "@/lib/proposals";
 import { Badge, Button, Card, EmptyState, PageHeader } from "@/components/ui";
-import { formatBRL } from "@/lib/utils";
+import { formatBRL, formatProposalStatus } from "@/lib/utils";
 
 export default async function DashboardPage() {
   const session = await getSessionContext();
@@ -46,7 +46,7 @@ export default async function DashboardPage() {
           </p>
         </Card>
         <Card>
-          <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Gerações IA</p>
+          <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Gerações (mês)</p>
           <p className="mt-2 font-display text-4xl">
             {usage.aiGenerationsThisMonth}
             <span className="text-lg text-[var(--muted)]">
@@ -105,7 +105,7 @@ export default async function DashboardPage() {
                       : "neutral"
                 }
               >
-                {p.status}
+                {formatProposalStatus(p.status)}
               </Badge>
             </Link>
           ))}

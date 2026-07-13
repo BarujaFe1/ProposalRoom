@@ -97,7 +97,7 @@ export function createProposalFromBrief(
     publicToken: `tok_${nanoid(12)}`,
     sections: generateProposalSections(input.brief, input.clientName),
     reminderCount: 0,
-    paymentUrl: `https://pay.proposalroom.app/mock/${nanoid(8)}`,
+    paymentUrl: undefined, // mock checkout stays in-app (see AcceptForm)
     createdAt: now,
     updatedAt: now,
   };

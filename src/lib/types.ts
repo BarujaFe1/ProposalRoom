@@ -2,6 +2,7 @@ export type User = {
   id: string;
   email: string;
   name: string;
+  /** scrypt hash (`scrypt$salt$hash`) — never store plaintext. */
   password: string;
   createdAt: string;
 };

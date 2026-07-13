@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { getSessionContext } from "@/lib/auth";
 import { listProposals } from "@/lib/proposals";
 import { Badge, Button, EmptyState, PageHeader } from "@/components/ui";
-import { formatBRL } from "@/lib/utils";
+import { formatBRL, formatProposalStatus } from "@/lib/utils";
 
 export default async function ProposalsPage() {
   const session = await getSessionContext();
@@ -52,7 +52,7 @@ export default async function ProposalsPage() {
                   </td>
                   <td className="hidden px-4 py-3 sm:table-cell">{p.clientName}</td>
                   <td className="px-4 py-3">
-                    <Badge>{p.status}</Badge>
+                    <Badge>{formatProposalStatus(p.status)}</Badge>
                   </td>
                   <td className="hidden px-4 py-3 md:table-cell">{formatBRL(p.amountCents)}</td>
                 </tr>

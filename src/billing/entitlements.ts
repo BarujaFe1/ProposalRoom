@@ -124,7 +124,7 @@ export function checkAiGenerationLimit(ctx: EntitlementContext): LimitCheck {
       limit,
       planId: plan.id,
       upgradeRequired: true,
-      message: `Limite mensal de ${limit} gerações com IA atingido.`,
+      message: `Limite mensal de ${limit} gerações de proposta atingido.`,
     };
   }
   return { ok: true, remaining, limit, planId: plan.id };

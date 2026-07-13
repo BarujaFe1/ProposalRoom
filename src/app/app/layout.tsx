@@ -18,7 +18,12 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         <AppSidebar workspaceName={session.workspace.name} planName={plan.name} />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
-        <AppTopbar userName={session.user.name} breadcrumb={session.workspace.name} />
+        <AppTopbar
+          userName={session.user.name}
+          breadcrumb={session.workspace.name}
+          workspaceName={session.workspace.name}
+          planName={plan.name}
+        />
         <main className="flex-1 px-4 py-6 sm:px-6">{children}</main>
       </div>
     </div>

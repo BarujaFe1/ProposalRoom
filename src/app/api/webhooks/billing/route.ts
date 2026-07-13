@@ -6,14 +6,14 @@ import type { PlanId } from "@/billing/plans";
 
 export async function POST(req: Request) {
   const payload = await req.text();
+  const provider = getBillingProvider();
   const signature =
     req.headers.get("stripe-signature") ??
     req.headers.get("x-signature") ??
     req.headers.get("x-hub-signature") ??
-    "mock";
+    (provider.name === "mock" ? "mock" : null);
 
   try {
-    const provider = getBillingProvider();
     const event = await provider.verifyAndParseWebhook(payload, signature);
 
     // Always persist raw event for auditability.

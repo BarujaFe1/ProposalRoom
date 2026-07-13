@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getSessionContext } from "@/lib/auth";
 import { getProposal } from "@/lib/proposals";
-import { absoluteUrl, formatBRL } from "@/lib/utils";
+import { absoluteUrl, formatBRL, formatProposalStatus } from "@/lib/utils";
 import { Badge, Button, Card, PageHeader } from "@/components/ui";
 import { ProposalActions } from "./actions";
 
@@ -34,7 +34,7 @@ export default async function ProposalDetailPage({
       />
 
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        <Badge tone="accent">{proposal.status}</Badge>
+        <Badge tone="accent">{formatProposalStatus(proposal.status)}</Badge>
         <span className="text-sm text-[var(--muted-strong)]">
           {formatBRL(proposal.amountCents)}
         </span>

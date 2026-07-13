@@ -39,8 +39,19 @@ flowchart TB
 
 ## Camadas
 
-1. **UI** — landing editorial, app shell, sala pública.
-2. **API** — Zod validation, auth session, gating de plano.
-3. **Billing** — provider adapter (`mock|stripe|mercadopago|pagarme`) + webhook idempotente.
-4. **Domain** — briefs, propostas, aceite, lembretes, export CSV.
-5. **Data** — demo in-memory agora; schema Supabase pronto em `supabase/schema.sql`.
+1. **UI (App Router)** — marketing, auth, workspace app, public client room  
+2. **Domain** — `src/lib/proposals.ts`, entitlements, audit log  
+3. **Billing** — provider interface + mock/stripe/MP adapters + idempotent webhook router  
+4. **Persistence (lab)** — in-memory `db()`; production path documented via `supabase/schema.sql`  
+5. **Auth** — scrypt password hashes + JWT session cookie (`jose`), verified in middleware  
+
+## Lab vs production
+
+| Concern | Lab (`DEMO_MODE=true`) | Production path |
+|---------|------------------------|-----------------|
+| Data | In-memory seed | Supabase Postgres + RLS |
+| Billing | Mock + in-app pay simulate | Stripe/MP SDK + signed webhooks |
+| Proposal gen | Local sections from brief | Optional LLM adapters |
+| Auth | JWT + scrypt | Same shape; stronger secret mgmt |
+
+See also: [TECHNICAL_DECISIONS.md](./TECHNICAL_DECISIONS.md), [TESTING.md](./TESTING.md), [DEPLOYMENT.md](./DEPLOYMENT.md), [AUDIT_REPORT.md](./AUDIT_REPORT.md).

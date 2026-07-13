@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, "chore/**"]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build
+        env:
+          DEMO_MODE: "true"
+          BILLING_PROVIDER: mock
+          AI_PROVIDER: mock
+          EMAIL_PROVIDER: mock
+          AUTH_SECRET: ci-portfolio-auth-secret-32chars-min
+          NEXT_PUBLIC_APP_NAME: ProposalRoom
+          NEXT_PUBLIC_APP_URL: http://localhost:3000

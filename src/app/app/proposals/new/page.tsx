@@ -44,7 +44,7 @@ export default function NewProposalPage() {
     <div>
       <PageHeader
         title="Nova proposta"
-        description="Cole o brief. A IA (ou o gerador local em demo) monta seções editoriais."
+        description="Cole o brief. O gerador local monta seções editoriais (adapters de IA preparados para produção)."
       />
       <form
         onSubmit={onSubmit}

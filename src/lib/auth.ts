@@ -2,14 +2,15 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { z } from "zod";
 import { db, findUserByEmail, findWorkspaceForUser } from "./db";
+import { getAuthSecretBytes } from "./env";
+import { hashPassword, verifyPassword } from "./password";
 import type { User, Workspace } from "./types";
 import { nanoid } from "nanoid";
 
 const SESSION_COOKIE = "pr_session";
 
 function secretKey() {
-  const secret = process.env.AUTH_SECRET ?? "proposalroom-dev-secret-change-me-32b";
-  return new TextEncoder().encode(secret);
+  return getAuthSecretBytes();
 }
 
 export const loginSchema = z.object({
@@ -83,7 +84,7 @@ export async function getSessionContext(): Promise<{
 
 export function authenticate(email: string, password: string) {
   const user = findUserByEmail(email);
-  if (!user || user.password !== password) {
+  if (!user || !verifyPassword(password, user.password)) {
     return { ok: false as const, error: "E-mail ou senha inválidos." };
   }
   return { ok: true as const, user };
@@ -97,7 +98,7 @@ export function registerUser(input: z.infer<typeof signupSchema>) {
     id: `user_${nanoid(8)}`,
     email: input.email.toLowerCase(),
     name: input.name,
-    password: input.password,
+    password: hashPassword(input.password),
     createdAt: new Date().toISOString(),
   };
   db().users.push(user);

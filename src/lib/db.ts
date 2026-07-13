@@ -8,6 +8,7 @@ import type {
   Workspace,
   WorkspaceMember,
 } from "./types";
+import { hashPassword } from "./password";
 
 const globalStore = globalThis as unknown as {
   __proposalRoomDb?: AppDatabase;
@@ -52,7 +53,7 @@ export function seedDemoDatabase(): AppDatabase {
     id: ownerId,
     email: "demo@proposalroom.app",
     name: "Ana Ribeiro",
-    password: "demo1234",
+    password: hashPassword("demo1234"),
     createdAt: now,
   };
 
@@ -143,7 +144,7 @@ export function seedDemoDatabase(): AppDatabase {
       templateId: template.id,
       sentAt: now,
       reminderCount: 1,
-      paymentUrl: "https://pay.proposalroom.app/mock/casa-aurora",
+      paymentUrl: undefined,
       createdAt: now,
       updatedAt: now,
     },
@@ -182,7 +183,7 @@ export function seedDemoDatabase(): AppDatabase {
       viewedAt: now,
       sentAt: now,
       reminderCount: 0,
-      paymentUrl: "https://pay.proposalroom.app/mock/studio-lume",
+      paymentUrl: undefined,
       createdAt: now,
       updatedAt: now,
     },
