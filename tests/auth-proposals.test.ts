@@ -1,7 +1,7 @@
 import { describe, expect, it, beforeEach } from "vitest";
 import { hashPassword, verifyPassword } from "@/lib/password";
-import { formatProposalStatus } from "@/lib/utils";
-import { resetDatabase, findUserByEmail } from "@/lib/db";
+import { formatProposalStatus, createPublicProposalPath } from "@/lib/utils";
+import { resetDatabase, findUserByEmail, findProposalByAccessToken } from "@/lib/db";
 import { authenticate, registerUser } from "@/lib/auth";
 import { createProposalFromBrief } from "@/lib/proposals";
 import { findWorkspaceForUser } from "@/lib/db";
@@ -24,9 +24,17 @@ describe("formatProposalStatus", () => {
   });
 });
 
+describe("secure share links", () => {
+  it("puts opaque token in path, not query string", () => {
+    const path = createPublicProposalPath("tok_casa_aurora_demo");
+    expect(path).toBe("/r/tok_casa_aurora_demo");
+    expect(path.includes("?")).toBe(false);
+  });
+});
+
 describe("auth + proposals domain", () => {
-  beforeEach(() => {
-    resetDatabase(true);
+  beforeEach(async () => {
+    await resetDatabase(true);
   });
 
   it("authenticates seeded demo user with hashed password", () => {
@@ -63,5 +71,10 @@ describe("auth + proposals domain", () => {
     });
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.upgradeRequired).toBe(true);
+  });
+
+  it("resolves client room by opaque access token", () => {
+    const proposal = findProposalByAccessToken("tok_casa_aurora_demo");
+    expect(proposal?.title).toMatch(/Casa Aurora/);
   });
 });

@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { createPublicProposalPath } from "./share-link";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,3 +31,9 @@ const STATUS_LABELS: Record<string, string> = {
 export function formatProposalStatus(status: string) {
   return STATUS_LABELS[status] ?? status;
 }
+
+export function publicProposalUrl(publicToken: string) {
+  return absoluteUrl(createPublicProposalPath(publicToken));
+}
+
+export { createPublicProposalPath };

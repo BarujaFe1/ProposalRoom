@@ -2,10 +2,16 @@
 
 ## In-memory database for the lab
 
-**Decision:** Use a process-global in-memory store (`src/lib/db.ts`) with a seeded demo workspace.  
-**Why:** Zero credentials to run the Live Demo; fastest path for portfolio reviewers.  
-**Trade-off:** State does not survive cold starts or multi-instance serverless. Acceptable for `DEMO_MODE=true`.  
-**Next:** Wire `supabase/schema.sql` with `@supabase/ssr` when persistence is required.
+**Decision (superseded 2026-07-13):** Replaced process-global memory with **SQLite via libsql**.  
+**Why now:** Interviewers correctly flag cold-start data loss on Vercel/local restart.  
+**How:** Write-through cache + `file:.data/proposalroom.db` locally; optional `TURSO_*` for multi-instance.  
+**Trade-off:** Without Turso, serverless instances do not share one DB. Documented honestly.
+
+## Opaque client-room tokens
+
+**Decision:** Share links use `/r/{publicToken}` instead of `/p/{slug}?token=`.  
+**Why:** Query-string tokens leak via Referer/logs more easily.  
+**Trade-off:** Token is still a bearer secret in the URL path — acceptable for lab, not for regulated data.
 
 ## Mock billing by default
 

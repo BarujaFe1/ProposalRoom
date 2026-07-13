@@ -1,18 +1,18 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { findProposalByPublic } from "@/lib/db";
+import { ensureDb, findProposalByAccessToken } from "@/lib/db";
 import { updateProposalStatus } from "@/lib/proposals";
 
 const schema = z.object({
-  slug: z.string().min(1),
-  token: z.string().min(1),
+  token: z.string().min(8),
 });
 
 /** Lab-only mock payment — never charges a real provider. */
 export async function POST(req: Request) {
+  await ensureDb();
   try {
     const body = schema.parse(await req.json());
-    const proposal = findProposalByPublic(body.slug, body.token);
+    const proposal = findProposalByAccessToken(body.token);
     if (!proposal) {
       return NextResponse.json({ error: "Proposta não encontrada." }, { status: 404 });
     }

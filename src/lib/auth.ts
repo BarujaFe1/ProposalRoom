@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { z } from "zod";
-import { db, findUserByEmail, findWorkspaceForUser } from "./db";
+import { db, findUserByEmail, findWorkspaceForUser, saveDb } from "./db";
 import { getAuthSecretBytes } from "./env";
 import { hashPassword, verifyPassword } from "./password";
 import type { User, Workspace } from "./types";
@@ -102,6 +102,7 @@ export function registerUser(input: z.infer<typeof signupSchema>) {
     createdAt: new Date().toISOString(),
   };
   db().users.push(user);
+  void saveDb();
   return { ok: true as const, user };
 }
 
@@ -156,5 +157,6 @@ export function createWorkspaceForUser(
     createdAt: new Date().toISOString(),
   });
 
+  void saveDb();
   return workspace;
 }

@@ -218,7 +218,10 @@ The demo seed simulates the **Atelier Norte** workspace with 3 active Starter pr
 Gera seções editoriais a partir do brief (gerador local no lab), com validação Zod e contagem de uso.
 
 ### Sala do Cliente
-Página pública `/p/[slug]?token=...` com visual de apresentação, aceite digital e **pagamento simulado in-app**.
+Página pública `/r/[token]` (token opaco no path). Links legados `/p/[slug]?token=` redirecionam. Aceite digital e **pagamento simulado in-app**.
+
+### Persistência
+SQLite (libsql) em arquivo local; Turso opcional para demo multi-instância na Vercel.
 
 ### Billing Ready (Lab = mock)
 Adapters `mock`, `stripe`, `mercadopago`, `pagarme`, plans, entitlements e webhook idempotente. No lab público: apenas mock.
@@ -235,10 +238,10 @@ CSV simples das propostas do workspace.
 
 | Escolha | Ganho | Custo |
 |---------|-------|-------|
-| In-memory DB | Demo sem credenciais | Estado não persiste em serverless |
+| SQLite file (libsql) | Persiste entre restarts locais | Sem Turso, instâncias Vercel não compartilham DB |
 | Mock billing | Zero risco de cobrança | Checkout real exige SDK |
 | Gerador local | Demo determinística | Não é LLM ao vivo no lab |
-| Token na query | Links fáceis de compartilhar | Risco de vazamento via Referer |
+| Token opaco no path `/r/…` | Menos vazamento via query/Referer | Continua sendo bearer secret na URL |
 
 Detalhes: [docs/TECHNICAL_DECISIONS.md](./docs/TECHNICAL_DECISIONS.md)
 
@@ -246,7 +249,7 @@ Detalhes: [docs/TECHNICAL_DECISIONS.md](./docs/TECHNICAL_DECISIONS.md)
 
 ## Status atual
 
-**Lab / Live Demo estável** em produção Vercel (`proposalroom-lab`). Pronto para portfólio e walkthrough. Persistência Supabase e cobrança real ficam no roadmap.
+**Lab / Live Demo** em Vercel (`proposalroom-lab`). Persistência SQLite local + E2E na CI. Billing mock. Redeploy necessário após merge desta branch para o demo público refletir SQLite/links `/r/…`.
 
 ---
 
@@ -262,6 +265,8 @@ EMAIL_PROVIDER=mock
 AUTH_SECRET=<32+ chars>
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_NAME=ProposalRoom
+# opcional: SQLITE_PATH=.data/proposalroom.db
+# opcional (Vercel multi-instância): TURSO_DATABASE_URL + TURSO_AUTH_TOKEN
 ```
 
 ---
@@ -276,11 +281,11 @@ NEXT_PUBLIC_APP_NAME=ProposalRoom
 
 ### Backend / Platform
 - **Auth demo:** JWT httpOnly (`jose`) + scrypt password hashes
-- **Data:** demo DB in-memory + schema Supabase Postgres/RLS (não ligado no lab)
+- **Data:** SQLite via libsql (arquivo local / Turso opcional) + schema Supabase documentado para evolução
 - **Geração:** local no lab; adapters de IA documentados
 - **Billing:** Stripe / Mercado Pago / Pagar.me adapters (mock no lab)
-- **Testes:** Vitest (+ Playwright opcional)
-- **CI:** GitHub Actions
+- **Testes:** Vitest + Playwright (E2E na CI)
+- **CI:** GitHub Actions (lint, typecheck, test, build, e2e)
 - **Deploy:** Vercel (`proposalroom-lab`)
 
 ---

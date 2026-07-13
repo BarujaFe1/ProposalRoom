@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBillingProvider } from "@/billing";
 import { applyBillingWebhookEvent } from "@/billing/webhook-router";
-import { db } from "@/lib/db";
+import { db, saveDb } from "@/lib/db";
 import type { PlanId } from "@/billing/plans";
 
 export async function POST(req: Request) {
@@ -44,6 +44,8 @@ export async function POST(req: Request) {
         }
       }
     }
+
+    await saveDb();
 
     return NextResponse.json({
       received: true,

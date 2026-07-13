@@ -5,14 +5,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui";
 
 export function AcceptForm({
-  slug,
-  token,
+  accessToken,
   status,
 }: {
-  slug: string;
-  token: string;
+  accessToken: string;
   status: string;
-  paymentUrl?: string;
 }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -27,7 +24,7 @@ export function AcceptForm({
     const res = await fetch("/api/public/accept", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug, token }),
+      body: JSON.stringify({ token: accessToken }),
     });
     const data = await res.json();
     setLoading(false);
@@ -45,7 +42,7 @@ export function AcceptForm({
     const res = await fetch("/api/public/pay", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug, token }),
+      body: JSON.stringify({ token: accessToken }),
     });
     const data = await res.json();
     setPaying(false);

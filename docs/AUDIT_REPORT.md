@@ -72,4 +72,10 @@ ProposalRoom is a coherent commercial MVP: brief → editorial proposal → toke
 - [x] `.env.example` + `.gitignore`
 - [x] Essential tests expanded
 - [x] UX reviewed (mobile nav, mock pay, labels)
-- [ ] E2E in CI (optional; Playwright browsers not installed in free CI by default)
+- [x] E2E wired in CI (Playwright Chromium; local needs `npx playwright install`)
+
+## Tier A follow-up (2026-07-13)
+
+- SQLite persistence (libsql)
+- Opaque `/r/[token]` share links
+- E2E job in GitHub Actions

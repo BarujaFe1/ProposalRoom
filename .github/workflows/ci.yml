@@ -2,13 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [main, master, "chore/**"]
+    branches: [main, master, "chore/**", "feat/**"]
   pull_request:
 
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,6 +19,8 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test
+        env:
+          VITEST: "1"
       - run: npm run build
         env:
           DEMO_MODE: "true"
@@ -28,3 +30,39 @@ jobs:
           AUTH_SECRET: ci-portfolio-auth-secret-32chars-min
           NEXT_PUBLIC_APP_NAME: ProposalRoom
           NEXT_PUBLIC_APP_URL: http://localhost:3000
+          SQLITE_URL: ":memory:"
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium --with-deps
+      - name: Build app for E2E
+        run: npm run build
+        env:
+          DEMO_MODE: "true"
+          BILLING_PROVIDER: mock
+          AI_PROVIDER: mock
+          EMAIL_PROVIDER: mock
+          AUTH_SECRET: ci-portfolio-auth-secret-32chars-min
+          NEXT_PUBLIC_APP_NAME: ProposalRoom
+          NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
+          SQLITE_PATH: ${{ runner.temp }}/proposalroom-e2e.db
+      - run: npm run test:e2e
+        env:
+          CI: "1"
+          DEMO_MODE: "true"
+          BILLING_PROVIDER: mock
+          AI_PROVIDER: mock
+          EMAIL_PROVIDER: mock
+          AUTH_SECRET: ci-portfolio-auth-secret-32chars-min
+          NEXT_PUBLIC_APP_NAME: ProposalRoom
+          NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
+          SQLITE_PATH: ${{ runner.temp }}/proposalroom-e2e.db

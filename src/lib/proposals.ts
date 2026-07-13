@@ -5,7 +5,7 @@ import {
   checkAiGenerationLimit,
   type EntitlementContext,
 } from "@/billing/entitlements";
-import { db, getUsage, recountActiveProposals } from "./db";
+import { db, getUsage, recountActiveProposals, saveDb } from "./db";
 import type { Proposal, ProposalSection, Workspace } from "./types";
 
 export const briefSchema = z.object({
@@ -115,6 +115,8 @@ export function createProposalFromBrief(
     createdAt: now,
   });
 
+  void saveDb();
+
   return { ok: true as const, proposal };
 }
 
@@ -135,6 +137,7 @@ export function updateProposalStatus(
 ) {
   Object.assign(proposal, extra, { status, updatedAt: new Date().toISOString() });
   recountActiveProposals(proposal.workspaceId);
+  void saveDb();
   return proposal;
 }
 

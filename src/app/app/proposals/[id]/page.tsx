@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getSessionContext } from "@/lib/auth";
 import { getProposal } from "@/lib/proposals";
-import { absoluteUrl, formatBRL, formatProposalStatus } from "@/lib/utils";
+import { publicProposalUrl, formatBRL, formatProposalStatus } from "@/lib/utils";
 import { Badge, Button, Card, PageHeader } from "@/components/ui";
 import { ProposalActions } from "./actions";
 
@@ -17,7 +17,7 @@ export default async function ProposalDetailPage({
   const proposal = getProposal(session.workspace.id, id);
   if (!proposal) notFound();
 
-  const publicUrl = absoluteUrl(`/p/${proposal.publicSlug}?token=${proposal.publicToken}`);
+  const publicUrl = publicProposalUrl(proposal.publicToken);
 
   return (
     <div>

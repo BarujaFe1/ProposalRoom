@@ -4,7 +4,7 @@ import { getSessionContext } from "@/lib/auth";
 import { getBillingProvider } from "@/billing";
 import { absoluteUrl } from "@/lib/utils";
 import { applyBillingWebhookEvent } from "@/billing/webhook-router";
-import { db } from "@/lib/db";
+import { db, saveDb } from "@/lib/db";
 import type { PlanId } from "@/billing/plans";
 
 const schema = z.object({
@@ -54,6 +54,7 @@ export async function POST(req: Request) {
         payload: { planId: parsed.data.planId },
         createdAt: new Date().toISOString(),
       });
+      await saveDb();
     }
 
     return NextResponse.json(result);

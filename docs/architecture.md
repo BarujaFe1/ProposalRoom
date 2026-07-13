@@ -42,8 +42,9 @@ flowchart TB
 1. **UI (App Router)** — marketing, auth, workspace app, public client room  
 2. **Domain** — `src/lib/proposals.ts`, entitlements, audit log  
 3. **Billing** — provider interface + mock/stripe/MP adapters + idempotent webhook router  
-4. **Persistence (lab)** — in-memory `db()`; production path documented via `supabase/schema.sql`  
+4. **Persistence (lab)** — SQLite via libsql (`file:.data/…` or Turso); Supabase schema documented for evolution  
 5. **Auth** — scrypt password hashes + JWT session cookie (`jose`), verified in middleware  
+6. **Client room** — opaque `/r/[token]` share links (legacy query redirects)  
 
 ## Lab vs production
 

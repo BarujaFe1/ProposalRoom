@@ -22,3 +22,12 @@ test("login → dashboard → create proposal → hit limit → upgrade", async 
   await expect(page.getByRole("heading", { name: "Upgrade" })).toBeVisible();
   await expect(page.getByText("Pro")).toBeVisible();
 });
+
+test("secure client room accept + mock pay", async ({ page }) => {
+  await page.goto("/r/tok_casa_aurora_demo");
+  await expect(page.getByRole("heading", { name: /Casa Aurora/i })).toBeVisible();
+  await page.getByRole("button", { name: "Aceitar proposta" }).click();
+  await expect(page.getByText(/Aceite registrado|aceita/i)).toBeVisible({ timeout: 10_000 });
+  await page.getByRole("button", { name: /Simular pagamento/i }).click();
+  await expect(page.getByText(/simulado/i)).toBeVisible({ timeout: 10_000 });
+});
