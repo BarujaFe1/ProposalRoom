@@ -1,386 +1,263 @@
-﻿<div align="center">
+<div align="center">
   <img src="./assets/icon.svg" alt="ProposalRoom Logo" width="120" height="120" />
 
   <h1>ProposalRoom</h1>
 
-  <p><strong>Gerador de propostas comerciais com sala do cliente, aceite digital, follow-up e cobrança pronta.</strong></p>
+  <p><strong>Gerador de propostas comerciais com sala do cliente, aceite digital, follow-up e billing-ready SaaS.</strong></p>
   <p><strong>Commercial proposal generator with client room, digital acceptance, follow-up and billing-ready SaaS.</strong></p>
 
   <p>
-    <a href="https://proposalroom-lab.vercel.app"><strong>Abrir demo</strong></a> •
-    <a href="#1-visão-geral--overview">PT-BR / English Overview</a> •
-    <a href="#-product-preview">Preview</a> •
-    <a href="#-screenshots">Screenshots</a> •
-    <a href="#️-stack--tecnologias">Stack</a> •
-    <a href="#-arquitetura--architecture">Architecture</a> •
-    <a href="#-quick-start--início-rápido">Quick Start</a> •
-    <a href="#-autor--author">Author</a>
+    <a href="#pt-br">PT-BR</a> ·
+    <a href="#en">English</a> ·
+    <a href="#live-demo">Live Demo</a> ·
+    <a href="#stack--tecnologias">Stack</a> ·
+    <a href="#arquitetura--architecture">Architecture</a> ·
+    <a href="#quick-start--início-rápido">Quick Start</a> ·
+    <a href="#autor--author">Author</a>
   </p>
 
   <p>
-    <a href="https://proposalroom-lab.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-proposalroom--lab.vercel.app-22C55E?style=for-the-badge" /></a>
+    <a href="https://proposalroom-lab.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live%20Demo-proposalroom--lab.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white" /></a>
     <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs" />
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-    <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Ready-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-    <img alt="Billing Mock" src="https://img.shields.io/badge/Billing-Mock%20Lab-635BFF?style=for-the-badge&logo=stripe&logoColor=white" />
-    <img alt="Vitest" src="https://img.shields.io/badge/Vitest-Unit%20Tests-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" />
-    <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+    <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+    <img alt="Lab Demo" src="https://img.shields.io/badge/Status-Lab%20demo-2563EB?style=for-the-badge" />
+    <img alt="MIT" src="https://img.shields.io/badge/License-MIT-111827?style=for-the-badge" />
+  </p>
+
+  <p>
+    <a href="https://proposalroom-lab.vercel.app"><strong>Live Demo</strong></a> ·
+    <a href="https://github.com/BarujaFe1/ProposalRoom"><strong>Repositório</strong></a> ·
+    <a href="https://barujafe.vercel.app/"><strong>Portfólio</strong></a> ·
+    <a href="https://www.linkedin.com/in/barujafe/"><strong>LinkedIn</strong></a>
   </p>
 </div>
 
 <p align="center">
-  <img src="./assets/hero-cover.svg" alt="ProposalRoom product overview" width="100%" />
+  <img src="./assets/hero-cover.svg" alt="ProposalRoom overview" width="100%" />
 </p>
 
 ---
 
-## Live Demo (Lab)
+<a id="pt-br"></a>
 
-**URL estável:** [https://proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app)
+## PT-BR
 
-| | |
+## Visão geral
+
+**ProposalRoom** gera propostas comerciais com sala do cliente, aceite digital, follow-up e base billing-ready. Lab SaaS — use DEMO_MODE=true localmente.
+
+> **Aviso de lab:** demo de portfólio com dados sintéticos/amostra. Não é produto em produção com SLA, integrações reais de clientes ou garantia operacional.
+
+---
+
+## Problema
+
+Propostas vivem em PDF solto: sem sala do cliente, sem aceite rastreável e sem caminho claro para billing.
+
+---
+
+## Para quem
+
+- Freelancers e agências comerciais
+- Closers que precisam de aceite digital
+- Builders de micro-SaaS B2B
+
+---
+
+## Funcionalidades
+
+- Geração de proposta
+- Sala do cliente
+- Aceite digital
+- Follow-up
+- Billing adapters (mock/Stripe/MP)
+- Seed script e testes Vitest
+
+---
+
+## Escopo e limites
+
+- **É:** lab SaaS de propostas + aceite.
+- **Não é:** CRM completo, ERP, assinatura ICP-Brasil, gateway de pagamento real na demo pública.
+
+---
+
+<a id="en"></a>
+
+## English
+
+## Overview
+
+**ProposalRoom** generates commercial proposals with a client room, digital acceptance, follow-up and billing-ready foundations. SaaS lab — use DEMO_MODE=true locally.
+
+> **Lab notice:** portfolio demo with synthetic/sample data. Not a production product with SLA, real customer integrations, or operational guarantees.
+
+---
+
+## Problem
+
+Proposals live as loose PDFs: no client room, no traceable acceptance and no clear path to billing.
+
+---
+
+## Who it is for
+
+- Freelancers and commercial agencies
+- Closers who need digital acceptance
+- B2B micro-SaaS builders
+
+---
+
+## Features
+
+- Proposal generation
+- Client room
+- Digital acceptance
+- Follow-up
+- Billing adapters (mock/Stripe/MP)
+- Seed script and Vitest tests
+
+---
+
+## Scope and limits
+
+- **Is:** proposals + acceptance SaaS lab.
+- **Is not:** full CRM, ERP, ICP-Brasil signature, real payment gateway on the public demo.
+
+---
+
+<a id="live-demo"></a>
+
+## Live Demo
+
+**URL:** [https://proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app)
+
+Demo hospedada para avaliação de portfólio / Hosted for portfolio review.
+
+> Lab demo — synthetic / sample data unless noted. Not a production SLA product.
+
+---
+
+<a id="stack--tecnologias"></a>
+
+## Stack / Tecnologias
+
+| Tecnologia | Uso no projeto |
 |---|---|
-| **Abrir demo** | [proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app) |
-| **Login** | `demo@proposalroom.app` |
-| **Senha** | `demo1234` |
-| **Modo** | Lab only — billing mock, sem pagamento real |
-
-> Portfolio lab: use o botão **Abrir demo** apenas com esta URL estável. Aceite digital e checkout são simulados.
-
----
-
-## 1. Visão Geral / Overview
-
-O **ProposalRoom** é um SaaS para transformar um brief em uma proposta comercial elegante, com sala do cliente, aceite digital, lembretes e cobrança preparada para produção.
-
-Ele foi desenhado para prestadores de serviço, designers, agências, arquitetos, assistência técnica e consultorias que precisam fechar propostas com clareza, evidência e fluxo real — sem dashboard decorativo.
-
-O projeto foi desenvolvido por **Felipe Alirio Baruja** como peça de portfólio premium (lab), pronta para publicação e evolução para produto pago.
-
-> **Product Notice**  
-> O MVP roda com demo DB in-memory e `BILLING_PROVIDER=mock` para funcionar sem credenciais. Schema Supabase, adapters Stripe/Mercado Pago e webhooks idempotentes já estão no repositório.
+| Next.js 15.5 / React 19 / TypeScript | App |
+| Tailwind CSS 4 / Lucide | UI |
+| Zod / jose / nanoid | Validação, JWT demo, IDs |
+| Vitest / Playwright (e2e) | Testes |
+| Supabase schema (opcional) | Persistência |
 
 ---
 
-## ✨ Product Preview
+<a id="arquitetura--architecture"></a>
 
-<p align="center">
-  <img src="./assets/screenshots/01-dashboard.svg" alt="ProposalRoom Dashboard" width="100%" />
-</p>
+## Arquitetura / Architecture
 
-O ProposalRoom apresenta uma experiência editorial e luxuosa: proposta como landing page, workspace real, limites por plano e upgrade com billing preparado (mock no lab).
+App Next.js com src/app, src/billing, src/components, src/lib, schema Supabase e docs de deploy.
 
----
-
-## 2. Por que este projeto importa? / Why this project matters
-
-* **Propostas ainda são PDF estático:** o cliente precisa de uma sala clara para ler, aceitar e pagar.
-* **Times enxutos precisam de velocidade:** do brief à proposta em minutos, com IA e templates.
-* **Cobrança não pode ser afterthought:** entitlements, webhooks e portal do cliente já fazem parte do MVP.
-* **Portfólio defensável:** arquitetura limpa, testes, docs de deploy e caminho para produção.
-
----
-
-## 🧠 O diferencial do ProposalRoom / What makes ProposalRoom different
-
-### Português
-Não é um gerador de texto solto. É um fluxo comercial completo:
-- brief → seções editoriais;
-- página pública protegida por token;
-- aceite + CTA de pagamento;
-- status, lembretes e exportação;
-- gating por plano no backend e na UI.
-
-### English
-Not just a text generator. It is a full commercial flow:
-- brief → editorial sections;
-- token-protected public page;
-- acceptance + payment CTA;
-- status, reminders and export;
-- plan gating on backend and UI.
-
----
-
-## 🎯 Problema que resolve / The problem it solves
-
-Em operações reais de serviço:
-- propostas demoram para sair;
-- o cliente não sabe onde aceitar;
-- follow-up some no WhatsApp;
-- cobrança fica desconectada do documento;
-- limites de plano não existem até o caos.
-
-O **ProposalRoom** organiza brief, proposta, sala do cliente, aceite e billing em um único produto.
-
----
-
-## 🧩 Proposta / Product Pipeline
-
-```txt
-Brief do cliente
-  ↓
-Geração de proposta (IA / gerador local demo)
-  ↓
-Edição e envio
-  ↓
-Sala pública protegida
-  ↓
-Aceite digital
-  ↓
-CTA de pagamento (mock no lab)
-  ↓
-Status + lembretes + export CSV
-  ↓
-Upgrade / Billing (mock → Stripe / Mercado Pago)
-```
-
----
-
-## 📸 Screenshots
-
-<table>
-  <tr>
-    <td width="50%">
-      <img src="./assets/screenshots/01-dashboard.svg" alt="Dashboard" />
-      <br />
-      <sub><strong>Dashboard</strong> — propostas ativas, plano, uso de IA e lista operacional.</sub>
-    </td>
-    <td width="50%">
-      <img src="./assets/screenshots/02-client-room.svg" alt="Client Room" />
-      <br />
-      <sub><strong>Sala do cliente</strong> — proposta editorial, aceite e CTA de pagamento.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <img src="./assets/screenshots/03-upgrade-billing.svg" alt="Upgrade and Billing" />
-      <br />
-      <sub><strong>Upgrade & Billing</strong> — limites, planos Pro/Business e portal do cliente.</sub>
-    </td>
-    <td width="50%">
-      <img src="./assets/architecture-pipeline.svg" alt="Architecture" />
-      <br />
-      <sub><strong>Architecture</strong> — Next.js, billing adapters, Supabase-ready schema.</sub>
-    </td>
-  </tr>
-</table>
-
----
-
-## 📌 Estudo de Caso / Case Study
-
-### 📌 Estudo de Caso: Atelier Norte
-O seed demo simula o workspace **Atelier Norte** com 3 propostas ativas no plano Starter, template editorial e clientes realistas (Casa Aurora, Studio Lume, Oficina Verde). Ao tentar a 4ª proposta, o gating exige upgrade — exatamente o momento de monetização.
-
-### 📌 Case Study: Atelier Norte
-The demo seed simulates the **Atelier Norte** workspace with 3 active Starter proposals, an editorial template and realistic clients. Creating a 4th proposal triggers upgrade gating — the monetization moment.
-
----
-
-## 🧭 Visual Story / Jornada do Produto
-
-```txt
-1. Abrir https://proposalroom-lab.vercel.app
-2. Entrar com demo@proposalroom.app / demo1234
-3. Ver dashboard com seed realista
-4. Criar proposta a partir de um brief
-5. Enviar e abrir a sala pública
-6. Aceitar e seguir para pagamento (mock)
-7. Atingir limite Starter e ir para /app/upgrade
-8. Simular checkout mock e portal de billing
-```
-
----
-
-## ⚙️ Funcionalidades Principais / Core Features
-
-### Brief → Proposta
-Gera seções editoriais a partir do brief, com validação Zod e contagem de uso de IA.
-
-### Sala do Cliente
-Página pública `/p/[slug]?token=...` com visual de apresentação, aceite e CTA de pagamento.
-
-### Billing Ready (Lab = mock)
-Adapters `mock`, `stripe`, `mercadopago`, `pagarme`, plans, entitlements e webhook idempotente. No lab público: apenas mock.
-
-### Plan Guards
-Limites de propostas ativas, templates, remoção de marca, analytics e automações.
-
-### Export
-CSV simples das propostas do workspace.
-
----
-
-## 🛠️ Stack / Tecnologias
-
-### Frontend
-- **Framework:** Next.js 15 (App Router) & React 19
-- **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS v4
-- **UI:** componentes próprios + Lucide
-
-### Backend / Platform
-- **Auth demo:** JWT httpOnly (`jose`)
-- **Data:** demo DB in-memory + schema Supabase Postgres/RLS
-- **IA:** adapters previstos (`OPENAI_API_KEY`, `XAI_API_KEY`)
-- **Billing:** Stripe / Mercado Pago / Pagar.me adapters (mock no lab)
-- **Testes:** Vitest + Playwright
-- **Deploy:** Vercel (`proposalroom-lab`)
-
----
-
-## 🧱 Arquitetura / Architecture
-
-```text
+`	xt
 ProposalRoom/
 ├── src/
-│   ├── app/                      # Landing, auth, app, public room, APIs
-│   ├── billing/                  # providers, plans, entitlements, webhooks
-│   ├── components/               # UI + app shell
-│   └── lib/                      # auth, db demo, proposals, utils
-├── supabase/schema.sql           # Postgres + RLS
-├── docs/                         # deploy, stripe, supabase, handoff
-├── tests/                        # unit tests
-├── e2e/                          # Playwright critical flow
-├── assets/                       # icon, hero, screenshots placeholders
-└── README.md
-```
-
-Detalhes em [docs/architecture.md](./docs/architecture.md).
-
----
-
-## 🧱 Visual Architecture
-
-<p align="center">
-  <img src="./assets/architecture-pipeline.svg" alt="ProposalRoom visual architecture" width="100%" />
-</p>
+│   ├── app/
+│   ├── billing/
+│   ├── components/
+│   └── lib/
+├── supabase/schema.sql
+├── scripts/seed.ts
+├── tests/
+├── e2e/
+├── assets/
+├── docs/
+├── .env.example
+└── vercel.json
+`
 
 ---
 
-## 🚀 Quick Start / Início Rápido
+<a id="quick-start--início-rápido"></a>
 
-### Live Demo (recomendado)
-Abra [https://proposalroom-lab.vercel.app](https://proposalroom-lab.vercel.app)  
-Login: `demo@proposalroom.app` / `demo1234`
+## Quick Start / Início rápido
 
-### Local
+### Pré-requisitos / Requirements
 
-```bash
+- Node.js 20+
+- npm
+- (Opcional) Supabase local/remoto
+
+### Clonar / Clone
+
+`ash
 git clone https://github.com/BarujaFe1/ProposalRoom.git
 cd ProposalRoom
+`
+
+### Setup
+
+`ash
 cp .env.example .env.local
+# DEMO_MODE=true e BILLING_PROVIDER=mock para lab sem secrets
 npm install
 npm run dev
-```
+`
 
-Abra [http://localhost:3000](http://localhost:3000).
+Abra http://localhost:3000
 
----
-
-## 🧪 Scripts e Testes / Scripts and Testing
-
-```bash
-npm run lint
+`ash
+npm run seed   # dados de demonstração
+npm run test
 npm run typecheck
-npm test
-npm run test:e2e
-npm run build
-npm run seed
-```
+`
+
 
 ---
 
-## 💳 Planos
+## Technical decisions / Decisões técnicas
 
-| Plano | Preço | Destaques |
-|------|------|-----------|
-| Starter | Grátis | 3 propostas ativas, marca ProposalRoom |
-| Pro | R$ 89/mês | 30 propostas, remove marca, analytics |
-| Business | R$ 249/mês | ilimitado, domínio, automações |
-
-No lab público a cobrança permanece **mock**.
+- **Sala do cliente + aceite** como núcleo, não só PDF.
+- **Billing-ready** com provider mock na demo.
+- **Sem secrets** no repositório — só .env.example.
 
 ---
 
-## 🧭 Roadmap
+## Roadmap
 
-* **MVP / Lab:** brief, proposta, sala pública, aceite, billing mock, docs, live demo
-* **Fase 2:** Supabase real, Resend, domínio customizado, templates compartilháveis, admin
-* **Fora do MVP:** app nativo, marketplace, multi-idioma completo
+### Implementado
+- Proposta, sala, aceite, follow-up, billing mock, demo lab URL
 
----
-
-## 💼 Valor para Portfólio / Portfolio Value
-
-- Produto SaaS monetizável com UX editorial
-- Arquitetura de billing defensável
-- Fluxo completo autenticado + página pública
-- Live demo estável para recrutadores
-
-Guia: [docs/portfolio.md](./docs/portfolio.md) · Vendas: [docs/sell.md](./docs/sell.md)
+### Planejado
+- Mais templates comerciais
+- Assinatura visual aprimorada
+- Relatórios de conversão
 
 ---
 
-## 📚 Documentação Complementar
+<a id="autor--author"></a>
 
-- [docs/architecture.md](./docs/architecture.md)
-- [docs/deploy-vercel.md](./docs/deploy-vercel.md)
-- [docs/supabase.md](./docs/supabase.md)
-- [docs/stripe.md](./docs/stripe.md)
-- [docs/mercadopago.md](./docs/mercadopago.md)
-- [docs/launch-checklist.md](./docs/launch-checklist.md)
-- [docs/handoff.md](./docs/handoff.md)
+## Autor / Author
 
----
+Developed by **Felipe Alirio Baruja**.
 
-## 🖼️ GitHub Social Preview
-
-```txt
-assets/social-preview.svg
-```
+- **Portfolio:** [https://barujafe.vercel.app/](https://barujafe.vercel.app/)
+- **GitHub:** [github.com/BarujaFe1](https://github.com/BarujaFe1)
+- **LinkedIn:** [linkedin.com/in/barujafe](https://www.linkedin.com/in/barujafe/)
+- **Repository:** [github.com/BarujaFe1/ProposalRoom](https://github.com/BarujaFe1/ProposalRoom)
 
 ---
 
-## 🔖 GitHub Repository Metadata
+## License / Licença
 
-### About sugerido
-```txt
-Commercial proposal generator with client room, digital acceptance, follow-up and billing-ready SaaS.
-```
+MIT License.
 
-### Homepage
-```txt
-https://proposalroom-lab.vercel.app
-```
-
-### Topics sugeridos
-```txt
-nextjs
-typescript
-saas
-billing
-stripe
-mercadopago
-supabase
-proposals
-portfolio
-vercel
-tailwindcss
-```
+See [LICENSE](./LICENSE) for details.
 
 ---
 
-## 👤 Autor / Author
-
-Desenvolvido por **Felipe Alirio Baruja**.
-
-- **Portfolio:** [barujafe.vercel.app](https://barujafe.vercel.app/)
-- **GitHub:** [@BarujaFe1](https://github.com/BarujaFe1)
-- **LinkedIn:** [Gustavo Felipe Alirio Baruja](https://www.linkedin.com/in/barujafe/)
-
----
-
-## 📄 Licença / License
-
-MIT License. Copyright (c) 2026 Felipe Alirio Baruja.
+<div align="center">
+  <p><strong>ProposalRoom</strong></p>
+  <p>Propostas com sala do cliente e aceite digital.</p>
+  <p><em>Proposals with a client room and digital acceptance.</em></p>
+</div>
